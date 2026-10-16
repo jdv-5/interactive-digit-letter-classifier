@@ -53,5 +53,6 @@ def train_mlp(epochs: int, learning_rate: float):
         save_data[f'mlp_w{idx + 1}'] = peso
         save_data[f'mlp_b{idx + 1}'] = mlp._sesgos[idx]
 
+# train_mlp(epochs=10, learning_rate=0.001)
 
 np.savez(r'ML\mnist models\params_letters.npz', **save_data)
