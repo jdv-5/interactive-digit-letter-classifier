@@ -2,4 +2,5 @@ numpy
 pandas
 pygame
 sys
+dvc[gdrive]
 git+https://github.com/jdv-5/ml_models.git
