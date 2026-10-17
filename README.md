@@ -20,5 +20,4 @@ each method have as parameters: epochs and learning rate, you also can edit the 
 
 ## Download datasets
 
- To download the datasets, first you must to install with pip: "pip install dvc[gdrive]", after of that type the command "dvc pull" in the terminal 
-(in the same folder where you used "git clone") in order to download the datasets
+ To download the datasets just execute "download_data.py" that will download a folder with 4 CSV files containing train and test datasets for the MNIST digits dataset and EMNIST letters dataset

@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import pygame
 
-data = pd.read_csv("mnist_test.csv")
+data = pd.read_csv("data/mnist_test.csv")
 
 datos = data.iloc[:]
 datos = datos.to_numpy(dtype=int)
@@ -40,7 +40,7 @@ COLOR_BAR_BG = (40, 40, 45)
 COLOR_BAR_FILL = (0, 180, 216)  # Color cian para probabilidades
 
 # Parametros
-params = np.load(r'ML\mnist models\params_digits.npz')
+params = np.load(r'interactive_digit_letter_classifier\params_digits.npz')
 
 # Modelos
 softmax = Regresion_Softmax(50, 0.1, architecture=(784,10), mini_batch=(True, 128))

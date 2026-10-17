@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from models_pya.ml import Regresion_Softmax, MLP
 
-data = pd.read_csv(r"emnist_letters_train.csv")
+data = pd.read_csv(r"data\emnist_letters_train.csv")
 
 datos = data.iloc[:]
 
@@ -23,7 +23,7 @@ datos[:, :-1] /= 255
 # mlp_act (activacion de mlp)
 
 try:
-    save_data = dict(np.load(r'params_letters.npz'))
+    save_data = dict(np.load(r'interactive_digit_letter_classifier\params_letters.npz'))
 except:
     save_data = dict()
 
@@ -55,4 +55,4 @@ def train_mlp(epochs: int, learning_rate: float):
 
 # train_mlp(epochs=10, learning_rate=0.001)
 
-np.savez('params_letters.npz', **save_data)
+np.savez(r'interactive_digit_letter_classifier\params_letters.npz', **save_data)
