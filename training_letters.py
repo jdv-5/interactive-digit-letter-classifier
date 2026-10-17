@@ -1,9 +1,8 @@
 import numpy as np
 import pandas as pd
 from models_pya.ml import Regresion_Softmax, MLP
-import time as tm
 
-data = pd.read_csv(r"C:\Users\USUARIO\Desktop\Proyectos\Python\archivos\emnist_letters_train.csv")
+data = pd.read_csv(r"emnist_letters_train.csv")
 
 datos = data.iloc[:]
 
@@ -23,11 +22,14 @@ datos[:, :-1] /= 255
 # mlp_arch (arquitectura del mlp)
 # mlp_act (activacion de mlp)
 
-save_data = dict(np.load(r'ML\mnist models\params_letters.npz'))
+try:
+    save_data = dict(np.load(r'params_letters.npz'))
+except:
+    save_data = dict()
 
-def train_softmax(epochs):
+def train_softmax(epochs: int, learning_rate: float):
 
-    softmax = Regresion_Softmax(epochs=epochs, learning_rate=0.1, architecture=(784,26), mini_batch=(True, 128))
+    softmax = Regresion_Softmax(epochs=epochs, learning_rate=learning_rate, architecture=(784,26), mini_batch=(True, 128))
 
     softmax.entrenar(datos=datos, estandarizar=False)
 
@@ -41,9 +43,7 @@ def train_mlp(epochs: int, learning_rate: float):
 
     mlp = MLP(epochs=epochs, learning_rate=learning_rate, architecture=archic_red, loss='log', activation=activation_red, optimizer=('minibatch', 128))
 
-    time_mlp = tm.perf_counter()
     mlp.entrenar(datos=datos, estandarizar=False)
-    print(f"time mlp: {(tm.perf_counter() - time_mlp):.2f}")
 
     save_data['mlp_arch'] = archic_red
     save_data['mlp_act'] = activation_red
@@ -55,4 +55,4 @@ def train_mlp(epochs: int, learning_rate: float):
 
 # train_mlp(epochs=10, learning_rate=0.001)
 
-np.savez(r'ML\mnist models\params_letters.npz', **save_data)
+np.savez('params_letters.npz', **save_data)

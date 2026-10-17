@@ -1,2 +1,5 @@
 __pycache__
 *.npz
+data/
+*.json
+.dvc/

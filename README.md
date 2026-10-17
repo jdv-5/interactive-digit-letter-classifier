@@ -16,3 +16,9 @@
 
  There are 2 files for to train the models of each canvas, in the files there are 2 main methods one for train the Neural Network and other for train the Softmax Regression 
 each method have as parameters: epochs and learning rate, you also can edit the architecture of the Neural Network the length of the minibatch or change to all the batch, same for the Softmax Regression
+
+
+## Download datasets
+
+ To download the datasets, first you must to install with pip: "pip install dvc[gdrive]", after of that type the command "dvc pull" in the terminal 
+(in the same folder where you used "git clone") in order to download the datasets
