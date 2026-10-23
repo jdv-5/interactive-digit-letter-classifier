@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import pygame
 
-data = pd.read_csv("data/emnist_letters_test.csv")
+data = pd.read_csv(r"dataset\data\emnist_letters_test.csv")
 
 datos = data.iloc[:]
 datos = datos.to_numpy(dtype=int)

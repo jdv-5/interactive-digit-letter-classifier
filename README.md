@@ -20,4 +20,9 @@ each method have as parameters: epochs and learning rate, you also can edit the 
 
 ## Download datasets
 
- To download the datasets just execute "download_data.py" that will download a folder with 4 CSV files containing train and test datasets for the MNIST digits dataset and EMNIST letters dataset
+ To download the datasets just execute "download_data.py" that will download a folder "dataset" with another folder named "data" with 4 CSV files containing train and test datasets for the MNIST digits dataset and EMNIST letters dataset.
+
+
+## Basic Tutorial
+
+ First you have to download the data, after of that you have to train the Neural Network and Softmax Regression models of the corresponding canvas in order to save the parameters of the models, e.g., if you want to use the mnist digits canvas first you have to execute the training methods of training_mnist file for NN and Softmax Regression.

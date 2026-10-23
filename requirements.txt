@@ -1,4 +1,5 @@
 numpy
 pandas
 pygame
+huggingface_hub
 git+https://github.com/jdv-5/ml_models.git

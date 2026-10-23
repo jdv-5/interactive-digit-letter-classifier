@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from models_pya.ml import Regresion_Softmax, MLP
 
-data = pd.read_csv(r"data\mnist_train.csv")
+data = pd.read_csv(r"dataset\data\mnist_train.csv")
 
 datos = data.iloc[:]
 
@@ -53,10 +53,5 @@ def train_mlp(epochs: int, learning_rate: float):
         save_data[f'mlp_w{idx + 1}'] = peso
         save_data[f'mlp_b{idx + 1}'] = mlp._sesgos[idx]
 
-# time = tm.perf_counter()
-
-# train_mlp(epochs=100)
-
-# print(f"tiempo: {(tm.perf_counter() - time):.2f}")
 
 np.savez(r'interactive_digit_letter_classifier\params_digits.npz', **save_data)

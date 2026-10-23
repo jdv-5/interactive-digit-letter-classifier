@@ -4,14 +4,10 @@ import sys
 import numpy as np
 import pygame
 
-data = pd.read_csv("data/mnist_test.csv")
+data = pd.read_csv(r"dataset\data\mnist_test.csv")
 
 datos = data.iloc[:]
 datos = datos.to_numpy(dtype=int)
-# columna_clave = 'label'
-# nuevo_orden = [col for col in datos.columns if col != columna_clave] + [columna_clave]
-
-# datos = datos[nuevo_orden].to_numpy(dtype=float)
 
 
 # 1. Inicialización de Pygame
