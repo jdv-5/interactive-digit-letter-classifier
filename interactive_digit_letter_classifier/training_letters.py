@@ -1,8 +1,14 @@
 import numpy as np
 import pandas as pd
+import pathlib
 from models_pya.ml import Regresion_Softmax, MLP
 
-data = pd.read_csv(r"dataset\data\emnist_letters_train.csv")
+actual_path = pathlib.Path(__file__).resolve().parent
+
+data_path = actual_path.parent / 'dataset' / 'data' / 'emnist_letters_train.csv'
+weights_path = actual_path / 'params_letters.npz'
+
+data = pd.read_csv(data_path)
 
 datos = data.iloc[:]
 
@@ -23,7 +29,7 @@ datos[:, :-1] /= 255
 # mlp_act (activacion de mlp)
 
 try:
-    save_data = dict(np.load(r'interactive_digit_letter_classifier\params_letters.npz'))
+    save_data = dict(np.load(weights_path))
 except:
     save_data = dict()
 
@@ -54,4 +60,4 @@ def train_mlp(epochs: int, learning_rate: float):
         save_data[f'mlp_b{idx + 1}'] = mlp._sesgos[idx]
 
 
-np.savez(r'interactive_digit_letter_classifier\params_letters.npz', **save_data)
+np.savez(weights_path, **save_data)
